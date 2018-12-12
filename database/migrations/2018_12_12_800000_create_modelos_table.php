@@ -17,7 +17,7 @@ class CreateModelosTable extends Migration
             $table->increments('mod_id');
             $table->string('mod_etiqueta');
             $table->integer('armod_id')->unsigned();
-            $table->date('mod_fecha');
+            $table->date('mod_fecha'); 
             $table->timestamps();
             $table->foreign('armod_id')->references('armod_id')->on('archivo_modelos')->onDelete('cascade');
         });
