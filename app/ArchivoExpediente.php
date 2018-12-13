@@ -10,11 +10,10 @@ class ArchivoExpediente extends Model
 
     protected $fillable = ['arex_nombre','arex_ruta','arex_descripcion','ex_id'];
 
-
-	public function expedientes()
+    public function expediente()
     {
-    	return $this->hasMany('App\Diligencia');
-
+    	return $this->belongsTo('App\Expediente');
     }
+
 
 }

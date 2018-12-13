@@ -19,12 +19,8 @@ class CreateModelosTable extends Migration
             $table->date('mod_fecha'); 
             $table->timestamps();
         });
+    }
     
-
-
-   
-
-
     /**
      * Reverse the migrations.
      *

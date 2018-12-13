@@ -17,5 +17,16 @@ class Expediente extends Model
 
     }
 
+    public function archivos_expedientes()
+    {
+    	return $this->hasMany('App\ArchivoExpediente');
+
+    }
+
+    public function clientes()
+    {
+        return $this->belongsToMany('App\Cliente')->withTimestamps();
+    }
+
 
 }

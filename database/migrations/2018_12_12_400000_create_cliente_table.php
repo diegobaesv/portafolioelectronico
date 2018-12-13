@@ -21,8 +21,22 @@ class CreateClienteTable extends Migration
             $table->char('cl_telefono',9);
             $table->string('cl_direccion');
             $table->char('cl_sexo',1);
-            $table->timestamps();
             $table->primary('cl_dni');
+            $table->timestamps();
+        });
+
+
+
+        Schema::create('expediente_cliente', function (Blueprint $table) {
+            
+            $table->char('cl_dni',8);
+            $table->integer('ex_id')->unsigned();
+            $table->primary(['ex_id', 'cl_dni']);
+            $table->date('fecha');
+           
+            $table->foreign('cl_dni')->references('cl_dni')->on('cliente')->onDelete('cascade');
+            $table->foreign('ex_id')->references('ex_id')->on('expedientes')->onDelete('cascade');
+             $table->timestamps();
         });
     }
 
