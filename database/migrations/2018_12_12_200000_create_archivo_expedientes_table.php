@@ -18,6 +18,8 @@ class CreateArchivoExpedientesTable extends Migration
             $table->string('arex_nombre');
             $table->string('arex_ruta');
             $table->string('arex_descripcion');
+            $table->integer('ex_id')->unsigned();
+            $table->foreign('ex_id')->references('ex_id')->on('expedientes')->onDelete('cascade');
             $table->timestamps();
         });
     }

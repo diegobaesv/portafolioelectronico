@@ -9,4 +9,9 @@ class Diligencia extends Model
     protected $table = "diligencias"
     protected $fillable = ['dil_nombre','dil_lugar','dil_fecha','dil_hora','ex_id'];
 
+    public function expediente()
+    {
+    	return $this->belongsTo('App\Expediente');
+    }
+
 }

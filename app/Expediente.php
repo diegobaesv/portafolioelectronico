@@ -8,5 +8,14 @@ class Expediente extends Model
 {
      protected $table = "expedientes";
 
-    protected $fillable = ['ex_numero','ex_descripcion','arex_id'];
+    protected $fillable = ['ex_numero','ex_descripcion'];
+
+
+    public function diligencias()
+    {
+    	return $this->hasMany('App\Diligencia');
+
+    }
+
+
 }
