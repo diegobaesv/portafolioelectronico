@@ -14,14 +14,14 @@ class CreateDiligenciasTable extends Migration
     public function up()
     {
         Schema::create('diligencias', function (Blueprint $table) {
-            $table->increments('dil_id');
+            $table->increments('id');
             $table->string('dil_nombre');
             $table->integer('ex_id')->unsigned();
             $table->string('dil_lugar');
             $table->date('dil_fecha');
             $table->time('dil_hora');
             $table->timestamps();
-            $table->foreign('ex_id')->references('ex_id')->on('expedientes')->onDelete('cascade');
+            $table->foreign('ex_id')->references('id')->on('expedientes')->onDelete('cascade');
         });
     }
 

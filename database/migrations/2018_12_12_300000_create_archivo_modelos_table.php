@@ -14,12 +14,12 @@ class CreateArchivoModelosTable extends Migration
     public function up()
     {
         Schema::create('archivo_modelos', function (Blueprint $table) {
-            $table->increments('armod_id');
+            $table->increments('id');
             $table->string('armod_nombre');
             $table->string('armod_ruta');
             $table->string('armod_descripcion');
             $table->integer('mod_id')->unsigned();
-            $table->foreign('mod_id')->references('mod_id')->on('modelos')->onDelete('cascade');
+            $table->foreign('mod_id')->references('id')->on('modelos')->onDelete('cascade');
             $table->timestamps();
         });
     }

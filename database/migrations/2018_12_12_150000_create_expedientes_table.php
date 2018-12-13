@@ -14,7 +14,7 @@ class CreateExpedientesTable extends Migration
     public function up()
     {
         Schema::create('expedientes', function (Blueprint $table) {
-            $table->increments('ex_id');
+            $table->increments('id');
             $table->string('ex_numero');
             $table->string('ex_descripcion');
             $table->timestamps();

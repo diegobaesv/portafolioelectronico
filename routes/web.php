@@ -12,5 +12,15 @@
 */
 
 Route::get('/', function () {
-    return "Hola mundo";
+	echo "Pagina inicio";
+});
+
+
+
+Route::group(['prefix'=> 'diligencias'],function()
+{
+	Route::get('view/{id}',[
+		'uses' => 'TestController@view',
+		'as'   =>  'diligenciasView'
+	]);
 });

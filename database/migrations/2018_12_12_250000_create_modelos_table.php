@@ -14,7 +14,7 @@ class CreateModelosTable extends Migration
     public function up()
     {
         Schema::create('modelos', function (Blueprint $table) {
-            $table->increments('mod_id');
+            $table->increments('id');
             $table->string('mod_etiqueta');
             $table->date('mod_fecha'); 
             $table->timestamps();
