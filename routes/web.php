@@ -12,15 +12,28 @@
 */
 
 Route::get('/', function () {
-	echo "Pagina inicio";
+	return view('welcome');
+});
+
+Route::get('/expedientes', function () {
+	return view('expedientes');
 });
 
 
 
-Route::group(['prefix'=> 'diligencias'],function()
+Route::group(['prefix'=> 'expedientes'],function()
 {
+
+	Route::get('/',function(){
+		return view('expedientes');
+
+	});
+
+
 	Route::get('view/{id}',[
-		'uses' => 'TestController@view',
-		'as'   =>  'diligenciasView'
+		'uses' => 'ExpedienteController@view',
+		'as'   =>  'expedienteView'
 	]);
+
+	
 });
