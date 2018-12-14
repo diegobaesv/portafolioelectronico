@@ -22,4 +22,5 @@ class ExpedienteController extends Controller
     	Expediente::create(request(['ex_numero', 'ex_descripcion']));
         return redirect('expedientes');
     }
+    
 }

@@ -22,3 +22,7 @@ Route::get('/expedientes', 'ExpedienteController@index');
 Route::get('/expedientes/create', 'ExpedienteController@create');
 Route::post('/expedientes', 'ExpedienteController@store');
 
+Route::get('/modelos', 'ModeloController@index');
+Route::get('/modelos/create', 'ModeloController@create');
+Route::post('/modelos', 'ModeloController@store');
+

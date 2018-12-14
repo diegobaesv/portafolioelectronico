@@ -2,11 +2,13 @@
 
 @section('title', 'Registrar Expediente') 
 
+@section('titulo','Registrar Expediente')
+
 @section('content')
 
 
 <div class="col-sm-8">
-    <h2>Registrar Expediente</h2>
+    
     <form action ="/expedientes" method="post">
         {{csrf_field()}}
         <div class="form-group">
