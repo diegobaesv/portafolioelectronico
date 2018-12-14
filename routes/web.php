@@ -12,28 +12,13 @@
 */
 
 Route::get('/', function () {
-	return view('welcome');
-});
-
-Route::get('/expedientes', function () {
-	return view('expedientes');
+	return view('layouts/index');
 });
 
 
 
-Route::group(['prefix'=> 'expedientes'],function()
-{
 
-	Route::get('/',function(){
-		return view('expedientes');
+Route::get('/expedientes', 'ExpedienteController@index');
+Route::get('/expedientes/create', 'ExpedienteController@create');
+Route::post('/expedientes', 'ExpedienteController@store');
 
-	});
-
-
-	Route::get('view/{id}',[
-		'uses' => 'ExpedienteController@view',
-		'as'   =>  'expedienteView'
-	]);
-
-	
-});

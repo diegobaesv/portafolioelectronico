@@ -10,7 +10,7 @@
         <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="expedientes">Expedientes</a>
+        <a class="nav-link" href="/expedientes">Expedientes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Diligencias</a>

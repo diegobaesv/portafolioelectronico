@@ -3,10 +3,27 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable; //Linea agregada para Sluggable
+
 
 class Expediente extends Model
 {
-     protected $table = "expedientes";
+
+    //Agregado para Sluggable
+
+    use Sluggable;
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'ex_numero'
+            ]
+        ];
+    }
+
+
+    protected $table = "expedientes";
 
     protected $fillable = ['ex_numero','ex_descripcion'];
 

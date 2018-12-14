@@ -7,12 +7,19 @@ use App\Expediente;
 
 class ExpedienteController extends Controller
 {
-    public function view($id){
+    public function index(){
+        $expedientes = Expediente::OrderBy('id','ASC')->paginate(5);
+    	return view('expedientes.index')->with('expedientes',$expedientes);
+    }
 
-    	$expediente = Expediente::find($id);
-    	dd($expediente);
-    	//return view('expedientes',['expediente' => $expediente]);
 
-    	
+    public function create(){
+    	return view('expedientes.create');
+    }
+
+
+    public function store(){
+    	Expediente::create(request(['ex_numero', 'ex_descripcion']));
+        return redirect('expedientes');
     }
 }
