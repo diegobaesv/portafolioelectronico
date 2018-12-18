@@ -5,7 +5,7 @@
 @section('botones')
 <div class="form-group">
 	<a href="/expedientes/create">
-		<button type="button" class="btn btn-success" name="nuevo">Nuevo</button>
+		<button type="button" class="btn btn-success" name="nuevo">Registrar Expediente</button>
 	</a>
 
 </div>
@@ -15,7 +15,7 @@
 
 @section('content')
 
-<table class="table table-striped">
+<table class="table table-striped ">
 	<thead>
 		<th>ID</th>
 		<th>Numero</th>
@@ -30,11 +30,12 @@
 			<td>{{$expediente->id}}	</td>
 			<td>{{$expediente->ex_numero}}	</td>
 			<td>{{$expediente->ex_descripcion}}	</td>
-			<td>	</td>
 			<td>	
-				<a href="" class="btn btn-info btn-sm">Mostrar</a>
+				<a href="/archivosexpediente/{{ $expediente->id }}" class="btn btn-info btn-sm">Ver</a>
+			</td>
+			<td>	
 				<a href="" class="btn btn-warning btn-sm">Editar</a>
-				<a href="" class="btn btn-danger btn-sm">Eliminar</a>
+				<a href="/expedientes/{{ $expediente->id }}/eliminar" onclick="return confirm('¿Seguro que deseas eliminar?')" class="btn btn-danger btn-sm">Borrar</a>
 
 			</td>
 		</tr>

@@ -22,4 +22,12 @@ class ModeloController extends Controller
     	Modelo::create(request(['mod_etiqueta', 'mod_fecha']));
         return redirect('modelos');
     }
+
+
+    public function destroy($id){
+        $modelo = Modelo::find($id);
+        $modelo->delete();
+        
+        return redirect()->back();
+    }
 }

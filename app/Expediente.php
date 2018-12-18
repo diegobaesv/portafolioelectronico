@@ -34,11 +34,12 @@ class Expediente extends Model
 
     }
 
-    public function archivos_expedientes()
+    public function archivosexpedientes()
     {
-    	return $this->hasMany('App\ArchivoExpediente');
+    	return $this->hasMany('App\ArchivoExpediente','id');
 
     }
+
 
     public function clientes()
     {

@@ -40,7 +40,13 @@
 *::after {
   box-sizing: border-box;
 }
-
+.headertekst{
+  text-align: center;
+}
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -394,7 +400,9 @@ h5, .h5 {
 h6, .h6 {
   font-size: 1rem;
 }
-
+h2.headertekst {
+  text-align: center;
+}
 .lead {
   font-size: 1.25rem;
   font-weight: 300;

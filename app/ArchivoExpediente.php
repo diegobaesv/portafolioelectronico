@@ -12,7 +12,7 @@ class ArchivoExpediente extends Model
 
     public function expediente()
     {
-    	return $this->belongsTo('App\Expediente');
+    	return $this->belongsTo('App\Expediente','arex_id');
     }
 
 

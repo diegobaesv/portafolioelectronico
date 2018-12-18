@@ -7,7 +7,7 @@
 @section('botones')
 <div class="form-group">
 	<a href="/modelos/create">
-		<button type="button" class="btn btn-success" name="nuevo">Nuevo</button>
+		<button type="button" class="btn btn-success" name="nuevo">Registrar Modelo</button>
 	</a>
 
 </div>
@@ -31,12 +31,15 @@
 			<td>{{$modelo->id}}	</td>
 			<td>{{$modelo->mod_etiqueta}}	</td>
 			<td>{{$modelo->mod_fecha}}	</td>
-			<td></td>
+			<td>
+				<a href="" class="btn btn-info btn-sm">Ver</a>
+			</td>
+
 			<td>	
+
 				
-				<a href="" class="btn btn-info btn-sm">Mostrar</a>
 				<a href="" class="btn btn-warning btn-sm">Editar</a>
-				<a href="" class="btn btn-danger btn-sm">Eliminar</a>
+				<a href="/modelos/{{ $modelo->id }}/eliminar" onclick="return confirm('¿Seguro que deseas eliminar?')" class="btn btn-danger btn-sm">Borrar</a>
 
 			</td>
 		</tr>

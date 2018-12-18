@@ -5,20 +5,16 @@
 	<title>@yield('title','Default') | Portafolio Electronico</title>
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.css')}}">
 </head>
+@include('layouts.nav') 
 
-
+<center >
+	<h2>@yield('titulo')</h2>
+	<div><h3>@yield('titulo2')</h3></div>
+</center>
 
 <body>
-	@include('layouts.nav') 
-
-
 	<div class="container-fluid">
 		
-			<div class="centered">
-				<h2>@yield('titulo')</h2>
-			</div>
-
-
 		<div class="container">
 			<hr style="width:100%;">
 			@yield('botones')
