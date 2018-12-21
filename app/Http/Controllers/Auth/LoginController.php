@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
@@ -25,21 +27,50 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/layouts.index';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
+
+    public function login()
+    {
+        return view('auth.login');
+    }
+
+
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+         $this->middleware('guest')->except('logout');
+         
     }
 
 
 
-    public function username(){
-        return 'nombre_usuario';
+    
+    public function store(){
+        $this->validate(request(), [
+            'nombre_usuario' => 'required',
+            'password' => 'required'
+        ]);
+        if (! auth()->attempt(request(['nombre_usuario', 'password'])) ) {
+            return back()->withErrors([
+                'message' => 'usuario o contraseña incorrecta.'
+            ]);
+        }
+        return redirect('/');
     }
+    
+    public function logout()
+    {
+        auth()->logout();
+        return redirect('login');
+    }
+   
+
+
+
 }

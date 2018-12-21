@@ -8,9 +8,19 @@
 @section('content')
 
 <center>
+	@yield('opciones')
 	<h6>Sistema Web creado para el curso de Sistemas de Informacion II, VI Ciclo de la Universidad Nacional del santa</h6>
 	<img src="https://www.uns.edu.pe/img/logo_rojo.png	" alt="UNS Logo" style="float:center;width:500px;height:270px;">
 
 </center>
+
+@endsection
+
+@section('footer')
+
+<script>
+	var link= document.getElementById('nav-Inicio');
+	link.setAttribute('class','nav-link active');
+</script>
 
 @endsection

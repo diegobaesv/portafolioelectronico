@@ -19,7 +19,7 @@
 		{{csrf_field()}}
 		<div class="form-group">
 			<label for="mod_etiqueta">Etiqueta modelo</label>
-			<input type="text" class="form-control" id="mod_etiqueta" name="mod_etiqueta" placeholder="Número expediente" required>
+			<input type="text" class="form-control" id="mod_etiqueta" name="mod_etiqueta" placeholder="Etiqueta modelo" required>
 		</div>
 	
 		<div class="form-group">
@@ -28,12 +28,6 @@
 			id="mod_fecha" name="mod_fecha" required
 			value = "{{Carbon\Carbon::now()->toDateString()}}">
 		</div>
-
-		<div class="form-group">
-			<label for="exampleFormControlFile1">Subir documento</label>
-			<input type="file" class="form-control-file" id="exampleFormControlFile1">
-		</div>
-
 
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Guardar cambios</button>

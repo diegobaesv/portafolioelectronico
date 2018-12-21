@@ -8,10 +8,26 @@ use App\Expediente;
 
 class ExpedienteController extends Controller
 {
-    public function index(){
-        $expedientes = Expediente::OrderBy('id','ASC')->paginate(10);
-    	return view('expedientes.index')->with('expedientes',$expedientes);
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
+
+    
+    public function index(){
+        $filtro=request('filtro');
+
+        $expedientes = Expediente::OrderBy('id','ASC')
+                        ->filtrar(compact('filtro'))
+                        ->paginate(10);
+
+        return view('expedientes.index',compact('expedientes','filtro'));
+    	
+    }
+
+    
 
 
     public function create(){
@@ -24,6 +40,19 @@ class ExpedienteController extends Controller
         return redirect('expedientes');
     }
     
+    public function edit($id){
+        $expediente = Expediente::find($id);
+        return view('expedientes.show')->with('expediente',$expediente);
+    }
+
+    public function update(Expediente $expediente){
+        $this->validate(request(), [
+            'ex_numero' => 'required',
+        ]);
+         $expediente->fill(request(['ex_numero', 'ex_descripcion']));
+        $expediente->save();
+        return redirect('expedientes');
+    }
 
     public function destroy($id){
         $expediente = Expediente::find($id);

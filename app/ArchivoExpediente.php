@@ -12,8 +12,15 @@ class ArchivoExpediente extends Model
 
     public function expediente()
     {
-    	return $this->belongsTo('App\Expediente','arex_id');
+    	return $this->belongsTo('App\Expediente');
     }
 
+
+public function scopeFiltrar($query,$filtros){
+
+        $filtro=$filtros['filtro'];
+        $exp=$filtros['exp'];
+        $query ->whereRaw("ex_id = $exp and (arex_nombre like '%$filtro%' or arex_descripcion like '%$filtro%')");
+    }
 
 }

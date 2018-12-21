@@ -7,9 +7,26 @@ use App\Modelo;
 
 class ModeloController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
      public function index(){
-        $modelos = Modelo::OrderBy('id','ASC')->paginate(5);
-    	return view('modelos.index')->with('modelos',$modelos);
+
+
+
+         $inicio=request('inicio');
+        $fin=request('fin');
+        $filtro=request('filtro');
+
+
+        $modelos = Modelo::OrderBy('id','ASC')
+                    ->filtrar(compact('inicio','fin','filtro'))
+                    ->paginate(5);
+    	return view('modelos.index',compact('inicio','fin','filtro','modelos'));
     }
 
 
@@ -23,6 +40,19 @@ class ModeloController extends Controller
         return redirect('modelos');
     }
 
+ public function update(Modelo $modelo){
+        $this->validate(request(), [
+            'mod_etiqueta' => 'required',
+        ]);
+         $modelo->fill(request(['mod_etiqueta', 'mod_fecha']));
+        $modelo->save();
+        return redirect('modelos');
+    }
+
+    public function edit($id){
+        $modelo = Modelo::find($id);
+        return view('modelos.show')->with('modelo',$modelo);
+    }
 
     public function destroy($id){
         $modelo = Modelo::find($id);

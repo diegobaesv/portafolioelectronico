@@ -24,9 +24,19 @@ class Modelo extends Model
 
     protected $fillable = ['mod_etiqueta','mod_fecha'];
 
-    public function archivos_modelos()
+    public function archivosmodelos()
     {
-    	return $this->hasMany('App\ArchivoModelo');
+    	return $this->hasMany('App\ArchivoModelo','mod_id','id');
+
+    }
+
+    public function scopeFiltrar($query,$filtros){
+
+        if ($filtro=$filtros['filtro']) {
+            $query ->whereRaw("mod_etiqueta like '%$filtro%'");
+        }elseif($filtros['inicio'] and $filtros['fin']){
+            $query ->whereBetween('mod_fecha',[$filtros['inicio'],$filtros['fin']] );
+        }
 
     }
     

@@ -7,8 +7,15 @@ use App\Cliente;
 
 class ClienteController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index(){
-    	$clientes = Cliente::OrderBy('id','ASC')->paginate(5);
+    	$clientes = Cliente::OrderBy('cl_appaterno','ASC')->paginate(5);
     	return view('clientes.index')->with('clientes',$clientes);
     }
 }

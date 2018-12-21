@@ -28,15 +28,21 @@ class Expediente extends Model
     protected $fillable = ['ex_numero','ex_descripcion'];
 
 
+    public function scopeFiltrar($query,$filtros){
+
+        $filtro=$filtros['filtro'];
+        $query ->whereRaw("ex_numero like '%$filtro%' or ex_descripcion like '%$filtro%'");
+    }
+
     public function diligencias()
     {
-    	return $this->hasMany('App\Diligencia');
+    	return $this->hasMany('App\Diligencia','ex_id','id');
 
     }
 
     public function archivosexpedientes()
     {
-    	return $this->hasMany('App\ArchivoExpediente','id');
+    	return $this->hasMany('App\ArchivoExpediente','ex_id','id');
 
     }
 
