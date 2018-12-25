@@ -15,8 +15,8 @@
 <hr>
 
 <div class="form-group">
-	<a href="#">
-		<button type="button" class="btn btn-success" name="nuevo">Registrar Usuario</button>
+	<a href="/clientes/create">
+		<button type="button" class="btn btn-success" name="nuevo">Registrar Cliente</button>
 	</a>
 	
 </div>
@@ -45,9 +45,9 @@
 			<td>{{$cliente->cl_nombre}}	</td>
 			<td>
 			@if($cliente->cl_sexo=='F')
-				Mujer
+				Femenino
 			@else
-				Hombre
+				Masculino
 			@endif
 			</td>
 			<td>{{$cliente->cl_telefono}}	</td>

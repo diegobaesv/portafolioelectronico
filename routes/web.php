@@ -50,6 +50,9 @@ Route::get('/diligencias/{expediente}', 'DiligenciaController@showExpediente');
 Route::patch('/diligencias/{diligencia}', 'DiligenciaController@update');
 
 Route::get('/clientes', 'ClienteController@index');
+Route::get('/clientes/create', 'ClienteController@create');
+Route::post('/clientes', 'ClienteController@store');
+
 
 Route::get('/prueba', function () {
 	return view('prueba/index');

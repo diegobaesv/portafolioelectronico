@@ -18,4 +18,16 @@ class ClienteController extends Controller
     	$clientes = Cliente::OrderBy('cl_appaterno','ASC')->paginate(5);
     	return view('clientes.index')->with('clientes',$clientes);
     }
+
+    public function create(){
+        $clientes = Cliente::OrderBy('id','ASC')->get();
+        return view('clientes.create')->with('clientes',$clientes);;
+    }
+
+    public function store(){
+        Cliente::create(request(['id','cl_appaterno', 'cl_apmaterno','cl_nombre','cl_telefono','cl_direccion','cl_sexo']));
+        return redirect('clientes');
+    }
+
+
 }
